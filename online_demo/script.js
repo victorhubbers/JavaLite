@@ -1,5 +1,5 @@
 cheerpjInit();
-cheerpjRunJar("/app/online_demo/JavaLite.jar");
+cheerpjRunJar("/app/JavaLite.jar");
 
 const btn = document.getElementById("compile-button");
 btn.addEventListener("click", onClick);
