@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -9,6 +10,10 @@ html {
   position: relative;
   font-family: sans-serif;
   background-color: #022b3a;
+}
+
+body {
+  padding: 15px;
 }
 
 h1,
@@ -26,26 +31,25 @@ main {
 }
 
 .main-content-div {
-  padding: 15px;
+  padding: 10px 0;
   width: 33vw;
   text-align: center;
 }
 
 textarea {
   background-color: #043749;
-  padding: 5px;
+  padding: 10px;
   margin: 5px 0;
   width: -moz-available;
   width: -webkit-fill-available;
   width: fill-available;
-  height: 50vh;
+  height: 45vh;
 }
 
 button {
   padding: 2px;
   width: 100%;
   color: #022b3a;
-  font-size: 18px;
   background-color: #03ff77;
 }
 
@@ -55,7 +59,7 @@ p a {
 }
 
 .error {
-  color: red;
+  color: rgb(255, 50, 50);
   font-weight: bold;
 }
 
@@ -78,6 +82,6 @@ footer {
   }
 
   .main-content-div {
-    width: 95vw;
+    width: 100%;
   }
 }

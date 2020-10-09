@@ -2,21 +2,21 @@ cheerpjInit();
 cheerpjRunJar("/app/JavaLite.jar");
 
 const btn = document.getElementById("compile-button");
-btn.addEventListener("click", onClick);
+btn.addEventListener("click", onCompile);
 
 let compiledByteCode;
 let hasRan = false;
 const sessionState = JSON.parse(sessionStorage.getItem("sessionState"));
 
 if (sessionState) {
-  //if true, user tried compiling when we needed to reload, so refill the user-input and then proceed with onClick
+  //if true, user tried compiling when we needed to reload, so refill the user-input and then proceed with onCompile
   // remove the sessionState so that code doesn't run when user manually refreshes the page.
   document.getElementById("user-input").value = sessionState.codeString;
-  onClick();
+  onCompile();
   sessionStorage.removeItem("sessionState");
 }
 
-async function onClick() {
+async function onCompile() {
   if (hasRan) {
     //true => we remember what the user wanted to compile, then refresh the page.
     sessionStorage.setItem(
@@ -68,9 +68,11 @@ async function run() {
   //Run the code and place the output in the textarea
   let output = await cjCall(runner, "run", compiledByteCode);
   if (prettifyStringArray(output).trim() === "") {
+    outputArea.classList.add("error");
     outputArea.value =
       'No output. Include print statements like this:\n\nprint("HelloWorld")';
   } else {
+    outputArea.classList.remove("error");
     outputArea.value = prettifyStringArray(output);
   }
 }
